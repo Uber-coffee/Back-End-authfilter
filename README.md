@@ -1,6 +1,6 @@
 ## Usage
 
-Add maven dependency:
+In your pom.xml add maven dependency:
 ```
 <dependency>
     <groupId>com.ubercoffee</groupId>
@@ -12,6 +12,15 @@ Add maven dependency:
     <artifactId>jjwt</artifactId>
     <version>0.9.1</version>
 </dependency>
+```
+and maven repository:
+```
+<repositories>
+    <repository>
+        <id>repsy</id>
+        <url>https://repo.repsy.io/mvn/kotique/default</url>
+    </repository>
+</repositories>
 ```
 
 In your `application.yml` add:
