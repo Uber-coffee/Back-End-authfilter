@@ -27,9 +27,9 @@ In your `application.yml` add:
 ```yaml
 auth:
   token:
-  enabled: true
-  idField: sub
-  rolesField: roles
+    enabled: true
+    idField: sub
+    rolesField: roles
 ```
 
 Enable security annotations processing:
