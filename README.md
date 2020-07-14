@@ -5,7 +5,7 @@ In your pom.xml add maven dependency:
 <dependency>
     <groupId>com.ubercoffee</groupId>
     <artifactId>auth-starter</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
 </dependency>
 <dependency>
     <groupId>io.jsonwebtoken</groupId>
@@ -27,9 +27,9 @@ In your `application.yml` add:
 ```yaml
 auth:
   token:
-  enabled: true
-  idField: sub
-  rolesField: roles
+    enabled: true
+    id-field: sub
+    roles-field: roles
 ```
 
 Enable security annotations processing:

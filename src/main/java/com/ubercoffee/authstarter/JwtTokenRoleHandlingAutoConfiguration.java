@@ -20,8 +20,8 @@ import java.util.Objects;
         prefix="auth.token",
         name = {
                 "enabled",
-                "idField",
-                "rolesField"
+                "id-field",
+                "roles-field"
         }
         )
 public class JwtTokenRoleHandlingAutoConfiguration {
