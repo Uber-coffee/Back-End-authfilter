@@ -5,7 +5,7 @@ In your pom.xml add maven dependency:
 <dependency>
     <groupId>com.ubercoffee</groupId>
     <artifactId>auth-starter</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
 </dependency>
 <dependency>
     <groupId>io.jsonwebtoken</groupId>
@@ -30,6 +30,12 @@ auth:
     enabled: true
     id-field: sub
     roles-field: roles
+    whitelist:
+      - /configuration/**
+      - /swagger-resources/**
+      - /swagger-ui.html
+      - /v2/api-docs
+      - /webjars/**
 ```
 
 Enable security annotations processing:

@@ -8,10 +8,12 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.validation.ObjectError;
 
 import java.util.Objects;
 
@@ -39,6 +41,19 @@ public class JwtTokenRoleHandlingAutoConfiguration {
                     properties.getIdField(),
                     properties.getRolesField()
             );
+        }
+
+        @Override
+        public void configure(WebSecurity web) throws Exception {
+            if (Objects.isNull(properties.getWhitelist())) {
+                return;
+            }
+
+            if (properties.getWhitelist().size() == 0) {
+                return;
+            }
+
+            web.ignoring().antMatchers(properties.getWhitelist().toArray(String[]::new));
         }
 
         @Override
